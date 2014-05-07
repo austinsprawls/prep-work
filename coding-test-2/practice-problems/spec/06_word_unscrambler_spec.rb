@@ -34,3 +34,19 @@ describe "#word_unscrambler" do
       .should == ["turn", "runt", "nurt"]
   end
 end
+
+#my solution in Python
+
+def word_check(string, check):
+    for letter in string:
+        if letter not in check:
+                    return False
+    return True
+    
+def word_unscrambler(string, dic):
+    match = []
+    for word in dic:
+        if word_check(string, word):
+            match.append(word)
+    return match
+            

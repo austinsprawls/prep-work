@@ -30,3 +30,31 @@ describe "#wonky_coins" do
   end
 
 end
+
+#solution in progress ...
+
+def wonky_coins(n):
+    if n == 0:
+        count +=  1
+    elif n == 1:
+        count +=  3
+    else:
+        count = 0
+        coins = [n/2, n/3, n/4]
+        coins.sort()
+        print "The sorted coins list is: " + str(coins)
+        for coin in coins:
+            print "on coin value: " + str(coin)
+            if coin == 1:
+                coins.remove(coin)
+                count += 3
+                print "updated count is: " + str(count)
+                print "updated coins list is " + str(coins)
+            elif coin == 0:
+                coins.remove(coin)
+                count += 1
+                print "updated count is: " + str(count)
+            else:
+                return count + wonky_coins(coin)
+    return count
+                

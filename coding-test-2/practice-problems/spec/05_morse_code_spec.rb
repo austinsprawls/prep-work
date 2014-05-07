@@ -27,3 +27,20 @@ describe "#morse_encode" do
     morse_encode("cat in hat").should == "-.-. .- -  .. -.  .... .- -"
   end
 end
+
+#my solution in Python
+
+def morse_encode_word(word):
+    morse = {'a': ' .-' , 'b': ' -...' , 'c': ' -.-.' , 'd': ' -..' , 'e': ' .' , 'f': ' ..-.' , 'g': ' --.' , 'h': ' ....' , 'i': ' ..' , 'j': ' .---' , 'k': ' -.-' , 'l': ' .-..' , 'm': ' --' , 'n': ' -.' , 'o': ' ---' , 'p': ' .--.' , 'q': ' --.-' , 'r': ' .-.' , 's': ' ...', 't': ' -' , 'u': ' ..-' ,'v': ' ...-' , 'w': ' .--' , 'x': ' -..-' , 'y': ' -.--' , 'z': ' --..'}
+    morse_string = ""
+    for letter in word:
+        morse_string += morse[letter]
+    return morse_string
+    
+def morse_encode(string):
+    string_list = string.split (" ")
+    morse_list = []
+    for word in string_list:
+        morse_list.append(morse_encode_word(word))
+    morse_string = "  ".join(morse_list)
+    return morse_string

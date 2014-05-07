@@ -34,27 +34,24 @@ end
 #solution in progress ...
 
 def wonky_coins(n):
+    total = 0
     if n == 0:
-        count +=  1
+        total +=  1
     elif n == 1:
-        count +=  3
+        total +=  3
     else:
-        count = 0
+        total = 0
         coins = [n/2, n/3, n/4]
         coins.sort()
-        print "The sorted coins list is: " + str(coins)
         for coin in coins:
-            print "on coin value: " + str(coin)
             if coin == 1:
+                count = coins.count(1)
                 coins.remove(coin)
-                count += 3
-                print "updated count is: " + str(count)
-                print "updated coins list is " + str(coins)
+                total = total +  (count * 3)
             elif coin == 0:
+                count = coins.count(0)
                 coins.remove(coin)
-                count += 1
-                print "updated count is: " + str(count)
+                total = total + (count* 1)
             else:
-                return count + wonky_coins(coin)
-    return count
-                
+                return total + wonky_coins(coin)
+    return total

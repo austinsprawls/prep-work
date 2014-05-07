@@ -43,3 +43,20 @@ describe "#nearest_larger" do
     nearest_larger( [2, 6, 4, 8], 3).should == nil
   end
 end
+
+#My ANSWER in Python
+
+def nearest_larger(arr,i):
+    j = 0
+    newer_index = 0
+    new_index = 0
+    for num in arr:
+        if num > arr[i] and j < i:
+            new_index = j
+        elif num > arr[i]:
+            newer_index = j
+        j += 1
+    if new_index < newer_index and arr[new_index] > arr[i]:
+        return new_index
+    elif newer_index < new_index and arr[newer_index] > arr[i]:
+        return newer_index

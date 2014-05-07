@@ -38,3 +38,20 @@ describe "#letter_count" do
     }
   end
 end
+
+#My solution in Python
+
+def letter_count(string):
+    new_string = string.replace(" ", "")
+    freq = {}
+    i = 1
+    for letter in new_string:
+        if letter not in freq:
+            count = 0)
+            for l in new_string[:]:
+                if l == letter:
+                    count += 1
+            freq[letter] = count
+        elif letter in freq:
+            pass
+    return freq

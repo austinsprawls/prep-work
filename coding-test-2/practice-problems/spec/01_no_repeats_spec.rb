@@ -32,3 +32,24 @@ describe "#no_repeats" do
     ]
   end
 end
+
+#MMy answer in Python
+
+def no_repeat(year):
+    year = str(year)
+    if year[0] in year[1:]:
+        return False
+    elif year[0] not in year[1:]:
+        return True
+    else:
+        return no_repeat(year[1:])
+    return True
+
+    
+def no_repeats(year_start, year_end):
+    if year_start == year_end and no_repeat(year_start):
+        return year_start
+    while year_start <= year_end:
+        if no_repeat(year_start):
+            print year_start
+        year_start += 1

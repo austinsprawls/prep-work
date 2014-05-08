@@ -31,27 +31,10 @@ describe "#wonky_coins" do
 
 end
 
-#solution in progress ...
+#My solution in Python
 
 def wonky_coins(n):
-    total = 0
     if n == 0:
-        total +=  1
-    elif n == 1:
-        total +=  3
+        return 1
     else:
-        total = 0
-        coins = [n/2, n/3, n/4]
-        coins.sort()
-        for coin in coins:
-            if coin == 1:
-                count = coins.count(1)
-                coins.remove(coin)
-                total = total +  (count * 3)
-            elif coin == 0:
-                count = coins.count(0)
-                coins.remove(coin)
-                total = total + (count* 1)
-            else:
-                return total + wonky_coins(coin)
-    return total
+        return wonky_coins(n/2) + wonky_coins(n/3) + wonky_coins(n/4)

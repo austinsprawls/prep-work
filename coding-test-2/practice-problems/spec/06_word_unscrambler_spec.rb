@@ -46,7 +46,9 @@ def word_check(string, check):
 def word_unscrambler(string, dic):
     match = []
     for word in dic:
-        if word_check(string, word):
+        if len(string) != len(word):
+            pass
+        elif word_check(string, word):
             match.append(word)
     return match
             
